@@ -17,6 +17,8 @@ public class User {
     private String password;
     private String email;
 
+    /*--------------------------------------------------MAPPING---------------------------------------------------*/
+
     @OneToOne
     private UserInfo userInfoId;
 
@@ -72,5 +74,7 @@ public class User {
         return userInfoId;
     }
 
-    public void setUserInfoId(UserInfo userInfoId) { this.userInfoId = userInfoId; }
+    public void setUserInfoId(UserInfo userInfoId) {
+        this.userInfoId = userInfoId;
+    }
 }

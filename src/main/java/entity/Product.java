@@ -11,9 +11,11 @@ public class Product {
     @Id
     @GeneratedValue
     private Long id;
-
     private String product_name;
+    private String type;
     private String product_price;
+
+    /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
     @ManyToMany(cascade =
             {
@@ -21,10 +23,10 @@ public class Product {
                     CascadeType.MERGE
             }
     )
-    @JoinTable(name = "product_ingredient",
+    @JoinTable(name = "product_order",
             joinColumns = {@JoinColumn(name = "product_id")},
-            inverseJoinColumns = {@JoinColumn(name = "ingredient_id")})
-    private List<Ingredient> ingredients = new ArrayList<>();
+            inverseJoinColumns = {@JoinColumn(name = "order_id")})
+    private List<Order> orders = new ArrayList<>();
 
 
     public Long getId() {
@@ -41,7 +43,15 @@ public class Product {
     }
 
     public void setProduct_name(String product_name) {
-        this.product_name = Product.this.product_name;
+        this.product_name = product_name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getProduct_price() {
@@ -49,7 +59,7 @@ public class Product {
     }
 
     public void setProduct_price(String product_price) {
-        this.product_price = Product.this.product_price;
+        this.product_price = product_price;
     }
 
 
