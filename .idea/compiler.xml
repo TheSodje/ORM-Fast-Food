@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="orm-hibernate" target="11" />
+      <module name="orm-hibernate" target="3.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
