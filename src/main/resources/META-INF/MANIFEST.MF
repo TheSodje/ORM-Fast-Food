@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Main-Class: 
+Class-Path: jakarta.transaction-api-2.0.0.jar istack-commons-runtime-4.0
+ .1.jar jackson-annotations-2.5.4.jar hibernate-core-6.1.4.Final.jar hib
+ ernate-commons-annotations-6.0.2.Final.jar jersey-common-2.20.jar antlr
+ 4-runtime-4.10.1.jar classmate-1.5.1.jar txw2-3.0.2.jar jaxb-runtime-3.
+ 0.2.jar jakarta.inject-api-2.0.0.jar jackson-module-jaxb-annotations-2.
+ 5.4.jar jackson-core-2.5.4.jar jersey-client-2.20.jar jakarta.persisten
+ ce-api-3.0.0.jar jandex-2.4.2.Final.jar aopalliance-repackaged-2.4.0-b2
+ 7.jar hk2-locator-2.4.0-b27.jar byte-buddy-1.12.9.jar javassist-3.18.1-
+ GA.jar mysql-connector-j-8.0.31.jar jersey-guava-2.20.jar hk2-api-2.4.0
+ -b27.jar jackson-jaxrs-base-2.5.4.jar osgi-resource-locator-1.0.1.jar j
+ ackson-databind-2.5.4.jar javax.ws.rs-api-2.0.1.jar jakarta.activation-
+ 2.0.1.jar jersey-container-servlet-core-2.20.jar jersey-core-1.8.jar pr
+ otobuf-java-3.19.4.jar javax.inject-2.4.0-b27.jar jersey-entity-filteri
+ ng-2.20.jar jackson-jaxrs-json-provider-2.5.4.jar jboss-logging-3.4.3.F
+ inal.jar jersey-server-2.20.jar validation-api-1.1.0.Final.jar jersey-c
+ ontainer-servlet-2.20.jar jakarta.xml.bind-api-3.0.1.jar javax.annotati
+ on-api-1.2.jar jersey-media-jaxb-2.20.jar jersey-client-1.8.jar jaxb-co
+ re-3.0.2.jar jersey-media-json-jackson-2.20.jar hk2-utils-2.4.0-b27.jar
+
