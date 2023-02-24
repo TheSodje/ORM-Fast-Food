@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ormFastFood:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ormFastFood</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ormFastFood-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ormFastFood:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="orm-hibernate" />
+        <module name="ormFastFood" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="orm-hibernate" target="3.6" />
+      <module name="orm-hibernate" target="3.8.1" />
+      <module name="ormFastFood" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
