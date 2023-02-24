@@ -1,10 +1,11 @@
-package repository;
-
-import entity.Product;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.TypedQuery;
+package com.sod.repository;
 
 import java.util.List;
+
+import com.sod.entity.Product;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 
 public class ProductRepository {
 
@@ -21,13 +22,12 @@ public class ProductRepository {
         return productList;
     }
 
-    public Product createProduct(Product product){
+    public Product createProduct(Product product) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(product);
             entityManager.getTransaction().commit();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
         }
@@ -35,27 +35,27 @@ public class ProductRepository {
         return product;
     }
 
-    public Product deleteProduct(Product product){
-        try{
+    public Product deleteProduct(Product product) {
+        try {
             entityManager.getTransaction().begin();
             entityManager.find(Product.class, product.getId());
-            if(product != null)  entityManager.remove(product);
+            if (product != null)
+                entityManager.remove(product);
             entityManager.getTransaction().commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
         }
         return product;
     }
 
-
-    public Product updateProduct(Product product){
-        try{
+    public Product updateProduct(Product product) {
+        try {
             entityManager.getTransaction().begin();
             entityManager.find(Product.class, product.getId());
             entityManager.merge(product);
             entityManager.getTransaction().commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
         }

@@ -1,11 +1,17 @@
-package entity;
+package com.sod.entity;
+
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Department {
+
+    // One to Many mapping with users(employee)
+    // One to Many mapping with Roles
 
     @Id
     @GeneratedValue
@@ -13,6 +19,9 @@ public class Department {
     private String name;
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
+
+    @OneToMany(mappedBy = "department")
+    private List<User> users;
 
     public Long getId() {
         return id;
@@ -30,4 +39,11 @@ public class Department {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "Department{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

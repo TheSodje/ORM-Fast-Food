@@ -1,18 +1,16 @@
-package entity;
+package com.sod.entity;
 
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 @Entity
 public class Order {
+
+    // Many to Many mapping with users(employee)
+    // Many to Many mapping with product
 
     @Id
     @GeneratedValue
@@ -20,12 +18,12 @@ public class Order {
     private String order_code;
     private Long quantity;
     private String status;
-    private Date date;
+    private LocalDate date;
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
-    @ManyToMany(mappedBy = "order")
-    private List<Product> product = new ArrayList<>();
+    // @ManyToMany(mappedBy = "order")
+    // private List<Product> product = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -59,17 +57,24 @@ public class Order {
         this.status = status;
     }
 
-//    MySQL DATETIME format: YYYY-MM-DD hh:mm:ss
-//    LocalTime date = LocalTime.now();
-    public Date getDate(){
+    // MySQL DATETIME format: YYYY-MM-DD hh:mm:ss
+    // LocalTime date = LocalTime.now();
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date){
-    this.date = date;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", order_code='" + order_code + '\'' +
+                ", quantity=" + quantity +
+                ", status=" + status +
+                ", date=" + date +
+                '}';
+    }
 }
-
-
-

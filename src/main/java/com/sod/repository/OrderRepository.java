@@ -1,13 +1,11 @@
-package repository;
-
-import entity.Order;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.TypedQuery;
+package com.sod.repository;
 
 import java.util.List;
 
-public class OrderRepository {
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 
+public class OrderRepository {
 
     private EntityManager entityManager;
 

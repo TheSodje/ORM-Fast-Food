@@ -1,10 +1,11 @@
-package repository;
-
-import entity.User;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.TypedQuery;
+package com.sod.repository;
 
 import java.util.List;
+
+import com.sod.entity.User;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 
 public class UserRepository {
 
@@ -21,14 +22,13 @@ public class UserRepository {
         return genderlist;
     }
 
-    public User createUser(User user){
-//     public User deleteUser(User user){
+    public User createUser(User user) {
+        // public User deleteUser(User user){
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(user);
             entityManager.getTransaction().commit();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
         }
@@ -36,41 +36,44 @@ public class UserRepository {
         return user;
     }
 
-//    public int updateUser(Long id, String email) {
-//        entityManager.getTransaction().begin();
-//        Query query = entityManager.createQuery("UPDATE User g set g.email= :email WHERE g.id= :id");
-//        query.setParameter("email",email);
-//        query.setParameter("id",id);
-//        int i = query.executeUpdate();
-//
-//        entityManager.getTransaction().commit();
-//        return i;
-//    }
+    // public int updateUser(Long id, String email) {
+    // entityManager.getTransaction().begin();
+    // Query query = entityManager.createQuery("UPDATE User g set g.email= :email
+    // WHERE g.id= :id");
+    // query.setParameter("email",email);
+    // query.setParameter("id",id);
+    // int i = query.executeUpdate();
+    //
+    // entityManager.getTransaction().commit();
+    // return i;
+    // }
 
-    public User deleteUser(User user){
-        try{
+    public User deleteUser(User user) {
+        try {
             entityManager.getTransaction().begin();
             entityManager.find(User.class, user.getId());
-            if(user != null)  entityManager.remove(user);
+            if (user != null)
+                entityManager.remove(user);
             entityManager.getTransaction().commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
         }
         return user;
     }
 
-
-    public User updateUser(User user){
-        try{
+    public User updateUser(User user) {
+        try {
             entityManager.getTransaction().begin();
-/*            String findQuery = "from User where id = :user_id";
-            Query query = entityManager.createQuery(findQuery);
-            query.setParameter("user_id", user.getId());*/
+            /*
+             * String findQuery = "from User where id = :user_id";
+             * Query query = entityManager.createQuery(findQuery);
+             * query.setParameter("user_id", user.getId());
+             */
             entityManager.find(User.class, user.getId());
             entityManager.merge(user);
             entityManager.getTransaction().commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
         }

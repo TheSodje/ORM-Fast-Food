@@ -1,4 +1,4 @@
-package configuration;
+package com.sod.configuration;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

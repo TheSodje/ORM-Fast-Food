@@ -1,4 +1,4 @@
-package entity;
+package com.sod.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,10 +7,12 @@ import jakarta.persistence.Id;
 @Entity
 public class UserInfo {
 
-    public UserInfo(String address, String gender, String birth_date) {
+    // One to One mapping with Users
+
+    public UserInfo(String address, String gender, String phonenumber) {
         this.address = address;
         this.gender = gender;
-        this.birth_date = birth_date;
+        this.phonenumber = phonenumber;
     }
 
     public UserInfo() {
@@ -21,7 +23,7 @@ public class UserInfo {
     private Long id;
     private String address;
     private String gender;
-    private String birth_date;
+    private String phonenumber;
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
@@ -49,11 +51,24 @@ public class UserInfo {
         this.gender = gender;
     }
 
-    public String getBirthDate() {
-        return birth_date;
+    public String getPhonenumber() {
+        return phonenumber;
     }
 
-    public void setBirthDate(String birth_date) {
-        this.birth_date = birth_date;
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
     }
+
+    /*--------------------------------------------------OVERRIDE---------------------------------------------------*/
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "id=" + id +
+                ", address='" + address + '\'' +
+                ", gender='" + gender + '\'' +
+                ", phonenumber='" + phonenumber + '\'' +
+                '}';
+    }
+
 }

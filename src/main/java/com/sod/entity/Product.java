@@ -1,12 +1,21 @@
-package entity;
-
-import jakarta.persistence.*;
+package com.sod.entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+
 @Entity
 public class Product {
+
+    // Many to Many mapping with User
+    // Many to Many mapping with Order
 
     @Id
     @GeneratedValue
@@ -17,17 +26,13 @@ public class Product {
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
-    @ManyToMany(cascade =
-            {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
-            }
-    )
-    @JoinTable(name = "product_order",
-            joinColumns = {@JoinColumn(name = "product_id")},
-            inverseJoinColumns = {@JoinColumn(name = "order_id")})
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "product_order", joinColumns = { @JoinColumn(name = "product_id") }, inverseJoinColumns = {
+            @JoinColumn(name = "order_id") })
     private List<Order> orders = new ArrayList<>();
-
 
     public Long getId() {
         return id;
@@ -36,7 +41,6 @@ public class Product {
     public void setId(Long id) {
         this.id = id;
     }
-
 
     public String getProduct_name() {
         return product_name;
@@ -61,6 +65,5 @@ public class Product {
     public void setProduct_price(String product_price) {
         this.product_price = product_price;
     }
-
 
 }

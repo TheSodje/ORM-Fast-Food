@@ -1,8 +1,8 @@
-package service;
+package com.sod.service;
 
-import configuration.JPAConfiguration;
-import entity.UserInfo;
-import repository.UserInfoRepository;
+import com.sod.configuration.JPAConfiguration;
+import com.sod.entity.UserInfo;
+import com.sod.repository.UserInfoRepository;
 
 public class UserInfoService {
 
@@ -12,15 +12,15 @@ public class UserInfoService {
         this.userInfoRepository = new UserInfoRepository(JPAConfiguration.getEntityManager());
     }
 
-    public UserInfo createUserInfo(UserInfo userInfo){
+    public UserInfo createUserInfo(UserInfo userInfo) {
         return userInfoRepository.createUserInfo(userInfo);
     }
-//    public UserInfo updateUserInfo(UserInfo userInfo){
-//        return userInfoRepository.updateUserInfo(userInfo);
-//    }
-//   public UserInfo deleteUserInfo(UserInfo userInfo){
-//         return userInfoRepository.deleteUserInfo(userInfo);
-//    }
+    // public UserInfo updateUserInfo(UserInfo userInfo){
+    // return userInfoRepository.updateUserInfo(userInfo);
+    // }
+    // public UserInfo deleteUserInfo(UserInfo userInfo){
+    // return userInfoRepository.deleteUserInfo(userInfo);
+    // }
 
     public UserInfo updateUserInfo(UserInfo userInfo) {
         return userInfoRepository.updateUserInfo(userInfo);
