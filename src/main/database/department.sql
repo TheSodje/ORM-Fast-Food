@@ -1,0 +1,5 @@
+INSERT INTO department (name)
+VALUES
+	("CUSTOMER SERVICE"),
+	("FINANCE"),
+  ("FOOD PRODUCTION");

@@ -3,12 +3,9 @@ package com.sod.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 
 @Entity
@@ -26,13 +23,8 @@ public class Product {
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    @JoinTable(name = "product_order", joinColumns = { @JoinColumn(name = "product_id") }, inverseJoinColumns = {
-            @JoinColumn(name = "order_id") })
-    private List<Order> orders = new ArrayList<>();
+    @ManyToMany (mappedBy = "product")
+    private List<Order> order;
 
     public Long getId() {
         return id;

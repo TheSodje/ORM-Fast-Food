@@ -1,10 +1,9 @@
 package com.sod.entity;
+import java.util.List;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Order {
@@ -16,14 +15,22 @@ public class Order {
     @GeneratedValue
     private Long id;
     private String order_code;
-    private Long quantity;
+    private int quantity;
     private String status;
     private LocalDate date;
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
-    // @ManyToMany(mappedBy = "order")
-    // private List<Product> product = new ArrayList<>();
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "product_order",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "order_id")
+    )
+    private List<Product> product;
 
     public Long getId() {
         return id;
@@ -41,11 +48,11 @@ public class Order {
         this.order_code = order_code;
     }
 
-    public Long getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Long quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
@@ -65,6 +72,14 @@ public class Order {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public List<Product> getProduct() {
+        return product;
+    }
+
+    public void setProduct(List<Product> product) {
+        this.product = product;
     }
 
     @Override
