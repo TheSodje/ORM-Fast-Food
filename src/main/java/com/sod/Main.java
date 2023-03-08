@@ -8,6 +8,7 @@ import com.sod.service.OrderService;
 import com.sod.service.ProductService;
 import com.sod.service.UserInfoService;
 import com.sod.service.UserService;
+import jakarta.ws.rs.GET;
 
 public class Main {
 
@@ -15,7 +16,7 @@ public class Main {
 
 //    UserService userService = new UserService();
 //    UserInfoService userInfoService = new UserInfoService();
-//    ProductService productService = new ProductService();
+    ProductService productService = new ProductService();
     OrderService orderService = new OrderService();
 
     /*----------------------------------------------------------------------------------------------------------*/
@@ -53,7 +54,7 @@ public class Main {
     Order order = new Order();
     // order.setDate(2022-02-02);
 
-    order = orderService.createOrder("Aardappel", 2, "Pending");
+    order = orderService.createOrder("10001", "Pending", productService.getProducts());
     System.out.println(order.getOrder_code());
     /*----------------------------------------------------------------------------------------------------------*/
 

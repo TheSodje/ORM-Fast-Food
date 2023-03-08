@@ -18,8 +18,8 @@ public class OrderService {
         return repository.getOrder();
     }
 
-    public Order createOrder(String orderCode, int quantity, String status, List<Product> product) {
-        return repository.createOrder(orderCode, quantity, status, product);
+    public Order createOrder(String orderCode, String status, List<Product> product) {
+        return repository.createOrder(orderCode, status, product);
     }
 
 }

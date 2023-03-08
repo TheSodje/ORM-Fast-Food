@@ -6,7 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -23,15 +22,6 @@ public class User {
     private String first_name;
     private String last_name;
     private String username;
-    private String password;
-    // private String email;
-
-    /*--------------------------------------------------MAPPING---------------------------------------------------*/
-
-    @OneToOne
-    // (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    // @JoinColumn(name = "user_id")
-    private UserInfo userInfoId;
 
     @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
     @JoinColumn(name = "department_id")
@@ -71,30 +61,6 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    // public String getEmail() {
-    // return email;
-    // }
-
-    // public void setEmail(String email) {
-    // this.email = email;
-    // }
-
-    public UserInfo getUserInfoId() {
-        return userInfoId;
-    }
-
-    public void setUserInfoId(UserInfo userInfoId) {
-        this.userInfoId = userInfoId;
-    }
-
     /*--------------------------------------------------OVERRIDE---------------------------------------------------*/
 
     @Override
@@ -104,8 +70,6 @@ public class User {
                 ", firstname = '" + first_name + '\'' +
                 ", lastname = '" + last_name + '\'' +
                 ", username = " + username +
-                ", password = " + password +
-                // ", email = " + email +
                 '}';
     }
 }

@@ -3,6 +3,7 @@ package com.sod.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class UserInfo {
@@ -24,6 +25,13 @@ public class UserInfo {
     private String address;
     private String gender;
     private String phonenumber;
+
+    /*--------------------------------------------------MAPPING---------------------------------------------------*/
+
+    @OneToOne
+    // (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    // @JoinColumn(name = "user_id")
+    private User user;
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
@@ -59,6 +67,14 @@ public class UserInfo {
         this.phonenumber = phonenumber;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     /*--------------------------------------------------OVERRIDE---------------------------------------------------*/
 
     @Override
@@ -68,6 +84,7 @@ public class UserInfo {
                 ", address='" + address + '\'' +
                 ", gender='" + gender + '\'' +
                 ", phonenumber='" + phonenumber + '\'' +
+                ", user='" + user + '\'' +
                 '}';
     }
 

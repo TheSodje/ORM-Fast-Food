@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.sod.entity.Order;
 import com.sod.entity.Product;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
@@ -35,16 +36,13 @@ public class OrderRepository {
         return product;
     }
 
-
-    public  Order createOrder(String orderCode, int quantity, String status, List<Product> product){
+    public Order createOrder(String orderCode, String status, List<Product> product) {
         Order order = new Order();
         order.setOrder_code(orderCode);
-        order.setQuantity(quantity);
         order.setStatus(status);
         order.setDate(LocalDate.now());
         order.setProduct(product);
         return createOrder(order);
     }
-
 
 }
