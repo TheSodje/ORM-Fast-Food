@@ -15,13 +15,6 @@ public class UserRepository {
         this.entityManager = entityManager;
     }
 
-    public List<User> getUsers() {
-        String query = "select g from User g";
-        TypedQuery<User> typedQuery = entityManager.createQuery(query, User.class);
-        List<User> genderlist = typedQuery.getResultList();
-        return genderlist;
-    }
-
     public User createUser(User user) {
         // public User deleteUser(User user){
         try {
@@ -35,18 +28,13 @@ public class UserRepository {
 
         return user;
     }
-
-    // public int updateUser(Long id, String email) {
-    // entityManager.getTransaction().begin();
-    // Query query = entityManager.createQuery("UPDATE User g set g.email= :email
-    // WHERE g.id= :id");
-    // query.setParameter("email",email);
-    // query.setParameter("id",id);
-    // int i = query.executeUpdate();
-    //
-    // entityManager.getTransaction().commit();
-    // return i;
-    // }
+    
+    public List<User> getUsers() {
+        String query = "select g from User g";
+        TypedQuery<User> typedQuery = entityManager.createQuery(query, User.class);
+        List<User> userList = typedQuery.getResultList();
+        return userList;
+    }
 
     public User deleteUser(User user) {
         try {
@@ -65,11 +53,6 @@ public class UserRepository {
     public User updateUser(User user) {
         try {
             entityManager.getTransaction().begin();
-            /*
-             * String findQuery = "from User where id = :user_id";
-             * Query query = entityManager.createQuery(findQuery);
-             * query.setParameter("user_id", user.getId());
-             */
             entityManager.find(User.class, user.getId());
             entityManager.merge(user);
             entityManager.getTransaction().commit();

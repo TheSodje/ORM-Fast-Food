@@ -1,10 +1,10 @@
 package com.sod.entity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 
@@ -15,31 +15,31 @@ public class Product {
     // Many to Many mapping with Order
 
     @Id
-    @GeneratedValue
-    private Long id;
-    private String product_name;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int id;
+    private String name;
     private String type;
-    private String product_price;
+    private String price;
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
     @ManyToMany (mappedBy = "product")
     private List<Order> order;
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getProduct_name() {
-        return product_name;
+    public String getName() {
+        return name;
     }
 
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getType() {
@@ -50,12 +50,12 @@ public class Product {
         this.type = type;
     }
 
-    public String getProduct_price() {
-        return product_price;
+    public String getPrice() {
+        return price;
     }
 
-    public void setProduct_price(String product_price) {
-        this.product_price = product_price;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
 }

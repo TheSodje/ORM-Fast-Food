@@ -4,6 +4,7 @@ import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
@@ -14,8 +15,8 @@ public class Department {
     // One to Many mapping with Roles
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int id;
     private String name;
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
@@ -23,11 +24,11 @@ public class Department {
     @OneToMany(mappedBy = "department")
     private List<User> users;
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

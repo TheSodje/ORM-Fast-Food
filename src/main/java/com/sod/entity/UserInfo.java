@@ -2,6 +2,7 @@ package com.sod.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
@@ -20,8 +21,8 @@ public class UserInfo {
     }
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int id;
     private String address;
     private String gender;
     private String phonenumber;
@@ -35,11 +36,11 @@ public class UserInfo {
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

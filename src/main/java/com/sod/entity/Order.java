@@ -12,8 +12,8 @@ public class Order {
     // Many to Many mapping with product
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int id;
     private String order_code;
     private int quantity;
     private String status;
@@ -32,11 +32,11 @@ public class Order {
     )
     private List<Product> product;
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
