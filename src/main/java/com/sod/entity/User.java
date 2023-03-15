@@ -1,11 +1,7 @@
 package com.sod.entity;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import java.util.*;
 
 @Entity
 public class User {
@@ -17,23 +13,49 @@ public class User {
     // One to One mapping with userinfo
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "user_first_name")
     private String first_name;
+
+    @Column(name = "user_last_name")
     private String last_name;
+
+    @Column(name = "user_username")
     private String username;
+
+    @Column(name = "user_password")
+    private String password;
+
+    public User(String name, String password, List<Role> roles) {
+        this.first_name = Objects.requireNonNull(getFirst_name());
+        this.last_name = Objects.requireNonNull(getLast_name());
+        this.username = Objects.requireNonNull(getUsername());
+        this.password = this.encrypt(getPassword());
+        // this.roles = Objects.requireNonNull(roles);
+    }
+
+    // @OneToMany(mappedBy = "role")
+    // @JoinColumn(name = "role_id")
+    // private List<Role> roles;
 
     @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
     @JoinColumn(name = "department_id")
     private Department department;
 
+    public User() {
+
+    }
+
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -61,6 +83,18 @@ public class User {
         this.username = username;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    String encrypt(String password) {
+        return this.password = password;
+    }
+
     /*--------------------------------------------------OVERRIDE---------------------------------------------------*/
 
     @Override
@@ -70,6 +104,7 @@ public class User {
                 ", firstname = '" + first_name + '\'' +
                 ", lastname = '" + last_name + '\'' +
                 ", username = " + username +
+                ", password = " + password +
                 '}';
     }
 }

@@ -1,12 +1,7 @@
 package com.sod.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
+import java.util.*;
 
 @Entity
 public class Product {
@@ -15,16 +10,20 @@ public class Product {
     // Many to Many mapping with Order
 
     @Id
-    @GeneratedValue
+    @Column(name = "product_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String product_name;
+
+    @Column(name = "product_name")
+    private String name;
+
+    @Column(name = "product_type")
     private String type;
-    private String product_price;
+
+    @Column(name = "product_price")
+    private Double price;
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
-
-    @ManyToMany (mappedBy = "product")
-    private List<Order> order;
 
     public Long getId() {
         return id;
@@ -34,12 +33,12 @@ public class Product {
         this.id = id;
     }
 
-    public String getProduct_name() {
-        return product_name;
+    public String getName() {
+        return name;
     }
 
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getType() {
@@ -50,12 +49,22 @@ public class Product {
         this.type = type;
     }
 
-    public String getProduct_price() {
-        return product_price;
+    public double getPrice() {
+        return price;
     }
 
-    public void setProduct_price(String product_price) {
-        this.product_price = product_price;
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type=" + type +
+                ", price=" + price +
+                '}';
     }
 
 }

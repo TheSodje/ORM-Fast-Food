@@ -8,39 +8,30 @@ import com.sod.repository.UserRepository;
 
 public class UserService {
 
-    private final UserRepository repository;
+    private final UserRepository userRepository;
 
     public UserService() {
-        this.repository = new UserRepository(JPAConfiguration.getEntityManager());
+        this.userRepository = new UserRepository(JPAConfiguration.getEntityManager());
+    }
+
+    // CRUD USERS
+
+    public User createUser(User user) {
+        return userRepository.createUser(user);
     }
 
     public List<User> getUsers() {
-        return repository.getUsers();
+        return userRepository.getUsers();
     }
-
-    public User createUser(User user) {
-        return repository.createUser(user);
-    }
-
-    // public boolean UpdateUserEmail(Long id, String email){
-    // int totalSaved = repository.updateUser(id, email);
-    //
-    // if(totalSaved>0){
-    // System.out.println("update user email");
-    // return true;
-    // }
-    // return false;
-    // }
-
-    // public User deleteUser(User user) {
-    // return repository.deleteUser(user);
-    // }
 
     public User updateUser(User user) {
-        return repository.updateUser(user);
+        return userRepository.updateUser(user);
     }
 
     public User deleteUser(User user) {
-        return repository.deleteUser(user);
+        return userRepository.deleteUser(user);
+    }
+
+    public void save(User user) {
     }
 }

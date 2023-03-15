@@ -1,36 +1,30 @@
 package com.sod.entity;
 
 import java.time.LocalDate;
-import java.util.List;
-
 import jakarta.persistence.*;
+import java.util.*;
 
 @Entity
 public class Order {
 
-    // Many to Many mapping with users(employee)
-    // Many to Many mapping with product
+    // Many to Many mapping with User
+    // Many to Many mapping with Order
 
     @Id
-    @GeneratedValue
+    @Column(name = "order_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String order_code;
-    private int quantity;
+
+    @Column(name = "order_code")
+    private String code;
+
+    @Column(name = "order_status")
     private String status;
+
+    @Column(name = "order_date")
     private LocalDate date;
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
-
-
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    @JoinTable(name = "product_order",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "order_id")
-    )
-    private List<Product> product;
 
     public Long getId() {
         return id;
@@ -40,20 +34,12 @@ public class Order {
         this.id = id;
     }
 
-    public String getOrder_code() {
-        return order_code;
+    public String getCode() {
+        return code;
     }
 
-    public void setOrder_code(String order_code) {
-        this.order_code = order_code;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getStatus() {
@@ -64,8 +50,6 @@ public class Order {
         this.status = status;
     }
 
-    // MySQL DATETIME format: YYYY-MM-DD hh:mm:ss
-    // LocalTime date = LocalTime.now();
     public LocalDate getDate() {
         return date;
     }
@@ -74,22 +58,14 @@ public class Order {
         this.date = date;
     }
 
-    public List<Product> getProduct() {
-        return product;
-    }
-
-    public void setProduct(List<Product> product) {
-        this.product = product;
-    }
-
     @Override
     public String toString() {
-        return "Role{" +
+        return "Order{" +
                 "id=" + id +
-                ", order_code='" + order_code + '\'' +
-                ", quantity=" + quantity +
+                ", order_code='" + code + '\'' +
                 ", status=" + status +
                 ", date=" + date +
                 '}';
     }
+
 }

@@ -38,10 +38,10 @@ public class OrderRepository {
 
     public Order createOrder(String orderCode, String status, List<Product> product) {
         Order order = new Order();
-        order.setOrder_code(orderCode);
+        order.setCode(orderCode);
         order.setStatus(status);
         order.setDate(LocalDate.now());
-        order.setProduct(product);
+        // order.setProduct(product);
         return createOrder(order);
     }
 

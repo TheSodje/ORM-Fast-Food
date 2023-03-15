@@ -1,9 +1,7 @@
 package com.sod.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
+import java.util.*;
 
 @Entity
 public class UserInfo {
@@ -20,26 +18,32 @@ public class UserInfo {
     }
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @Column(name = "user_info_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "user_info_address")
     private String address;
+
+    @Column(name = "user_info_gender")
     private String gender;
+
+    @Column(name = "user_info_phonenumber")
     private String phonenumber;
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
-    @OneToOne
-    // (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    // @JoinColumn(name = "user_id")
+    @OneToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
+    @JoinColumn(name = "user_id")
     private User user;
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

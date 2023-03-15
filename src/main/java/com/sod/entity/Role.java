@@ -1,9 +1,7 @@
 package com.sod.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import java.util.*;
 
 @Entity
 public class Role {
@@ -12,24 +10,24 @@ public class Role {
     // Many to Many mapping with users
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @Column(name = "role_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "role_name")
     private String name;
-    private String info;
 
-    @ManyToOne
+    @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
+    @JoinColumn(name = "department_id")
     private Department department;
-
-    // @ManyToMany
-    // private
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -41,20 +39,11 @@ public class Role {
         this.name = name;
     }
 
-    public String getInfo() {
-        return info;
-    }
-
-    public void setInfo(String info) {
-        this.info = info;
-    }
-
     @Override
     public String toString() {
         return "Role{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", info=" + info +
                 '}';
     }
 }

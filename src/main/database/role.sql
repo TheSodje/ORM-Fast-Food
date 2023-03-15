@@ -1,7 +1,7 @@
 -- INSERT QUERY DATA ROLES
-INSERT INTO role (id, name, info, department_id)
+INSERT INTO role (role_id, role_name, department_id)
 VALUES
-	(1, "HELPDESK", "RESPONSIBLE FOR INCOMING REQUEST/ISSUES", 2),
-	(2, "CASHIER", "RESPONSIBLE CASHFLOW", 1),
-	(3, "HEAD CHEF", "RESPONSIBLE FOR MAIN COURSES", 3),
-  (4, "SOUS CHEF", "RESPONSIBLE FOR SIDE-DISHES", 3);
+	(1, "HELPDESK", 2),
+	(2, "CASHIER", 1),
+	(3, "HEAD CHEF", 3),
+ 	(4, "SOUS CHEF", 3);
