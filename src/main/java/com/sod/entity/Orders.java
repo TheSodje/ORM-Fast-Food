@@ -1,11 +1,12 @@
 package com.sod.entity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import jakarta.persistence.*;
 import java.util.*;
 
 @Entity
-public class Order {
+public class Orders {
 
     // Many to Many mapping with User
     // Many to Many mapping with Order
@@ -22,9 +23,25 @@ public class Order {
     private String status;
 
     @Column(name = "order_date")
-    private LocalDate date;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime date;
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
+
+    // @ManyToMany
+    // @JoinTable(name = "order_product", 
+    // joinColumns = @JoinColumn(name = "order_id"), 
+    // inverseJoinColumns = @JoinColumn(name = "product_id"))
+    // private List<Product> products;
+
+    @OneToMany(
+        mappedBy = "orders",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+    )
+    private List<OrderProduct> products = new ArrayList<>();
+
+    /*--------------------------------------------------GETTERS & SETTERS---------------------------------------------------*/
 
     public Long getId() {
         return id;
@@ -50,11 +67,11 @@ public class Order {
         this.status = status;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

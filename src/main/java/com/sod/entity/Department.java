@@ -20,7 +20,9 @@ public class Department {
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
     @OneToMany(mappedBy = "department")
-    private List<User> users;
+    private List<Role> role;
+
+    /*--------------------------------------------------GETTERS & SETTERS---------------------------------------------------*/
 
     public long getId() {
         return id;

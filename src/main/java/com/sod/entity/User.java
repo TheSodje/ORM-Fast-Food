@@ -6,10 +6,7 @@ import java.util.*;
 @Entity
 public class User {
 
-    // Many to One mapping with Department
-    // Many to Many mapping with Roles
-    // Many to Many mapping with Product
-    // Many to Many mapping with Order
+    // Many to One mapping with Roles
     // One to One mapping with userinfo
 
     @Id
@@ -37,19 +34,13 @@ public class User {
         // this.roles = Objects.requireNonNull(roles);
     }
 
-    // @OneToMany(mappedBy = "role")
-    // @JoinColumn(name = "role_id")
-    // private List<Role> roles;
+    /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
     @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
-    @JoinColumn(name = "department_id")
-    private Department department;
+    @JoinColumn(name = "role_id")
+    private Role role;
 
-    public User() {
-
-    }
-
-    /*--------------------------------------------------MAPPING---------------------------------------------------*/
+    /*--------------------------------------------------GETTERS & SETTERS---------------------------------------------------*/
 
     public long getId() {
         return id;

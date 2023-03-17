@@ -16,12 +16,14 @@ public class Role {
 
     @Column(name = "role_name")
     private String name;
-
+    
+    /*--------------------------------------------------MAPPING---------------------------------------------------*/
+ 
     @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
     @JoinColumn(name = "department_id")
     private Department department;
 
-    /*--------------------------------------------------MAPPING---------------------------------------------------*/
+    /*--------------------------------------------------GETTERS & SETTERS---------------------------------------------------*/
 
     public long getId() {
         return id;

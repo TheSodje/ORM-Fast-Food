@@ -25,6 +25,18 @@ public class Product {
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
+    // @ManyToMany(mappedBy = "products")
+    // private List<Orders> orders;
+
+    @OneToMany(
+        mappedBy = "products",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+    )
+    private List<OrderProduct> orders = new ArrayList<>();
+
+    /*--------------------------------------------------GETTERS & SETTERS---------------------------------------------------*/
+
     public Long getId() {
         return id;
     }

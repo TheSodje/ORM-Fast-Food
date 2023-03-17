@@ -64,6 +64,8 @@
           <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-params:5.9.2" />
           <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.9.2" />
           <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-engine:1.9.2" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:5.2.4.Final" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
         </element>
       </element>
       <element id="directory" name="META-INF">

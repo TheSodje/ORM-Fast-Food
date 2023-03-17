@@ -33,11 +33,11 @@ public class UserInfo {
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
-    @OneToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 
-    /*--------------------------------------------------MAPPING---------------------------------------------------*/
+    /*--------------------------------------------------GETTERS & SETTERS---------------------------------------------------*/
 
     public long getId() {
         return id;

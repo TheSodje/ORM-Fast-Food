@@ -35,6 +35,14 @@ public class ProductRepository {
         return product;
     }
 
+    public Product createProduct(String name, String type, int price) {
+        Product product = new Product();
+        product.setName(name);
+        product.setType(type);
+        product.setPrice(price);
+        return createProduct(product);
+    }
+
     public Product deleteProduct(Product product) {
         try {
             entityManager.getTransaction().begin();
