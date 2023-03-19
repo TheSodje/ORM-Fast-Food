@@ -10,7 +10,7 @@ public class Product {
     // Many to Many mapping with Order
 
     @Id
-    @Column(name = "product_id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -29,11 +29,11 @@ public class Product {
     // private List<Orders> orders;
 
     @OneToMany(
-        mappedBy = "products",
+        mappedBy = "product",
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )
-    private List<OrderProduct> orders = new ArrayList<>();
+    private List<OrderProduct> orders;
 
     /*--------------------------------------------------GETTERS & SETTERS---------------------------------------------------*/
 
@@ -76,6 +76,7 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", type=" + type +
                 ", price=" + price +
+                ", orders=" + orders +
                 '}';
     }
 

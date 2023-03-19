@@ -1,18 +1,20 @@
 package com.sod.entity;
 
 import java.time.LocalDateTime;
-
 import jakarta.persistence.*;
 import java.util.*;
 
+import org.hibernate.annotations.NaturalIdCache;
+
 @Entity
+@NaturalIdCache
 public class Orders {
 
     // Many to Many mapping with User
     // Many to Many mapping with Order
 
     @Id
-    @Column(name = "order_id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -29,17 +31,17 @@ public class Orders {
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
 
     // @ManyToMany
-    // @JoinTable(name = "order_product", 
-    // joinColumns = @JoinColumn(name = "order_id"), 
+    // @JoinTable(name = "order_product",
+    // joinColumns = @JoinColumn(name = "order_id"),
     // inverseJoinColumns = @JoinColumn(name = "product_id"))
     // private List<Product> products;
-
+    
     @OneToMany(
         mappedBy = "orders",
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )
-    private List<OrderProduct> products = new ArrayList<>();
+    private List<OrderProduct> products;
 
     /*--------------------------------------------------GETTERS & SETTERS---------------------------------------------------*/
 

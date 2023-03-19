@@ -13,34 +13,34 @@ public class OrderProduct {
     private OrderProductId id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("order_id")
-    private Orders order;
+    @MapsId("orderId")
+    private Orders orders;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("product_id")
+    @MapsId("productId")
     private Product product;
 
     @Column(name = "quantity")
     private int quantity;
 
-    // private OrderProduct() {
-
-    // }
-
-    public OrderProduct(Orders order, Product product) {
-        this.order = order;
+    public OrderProduct(Orders orders, Product product) {
+        this.orders = orders;
         this.product = product;
-        this.id = new OrderProductId(order.getId(), product.getId());
+        this.id = new OrderProductId(orders.getId(), product.getId());
+    }
+
+    public OrderProduct() {
+
     }
 
     /*--------------------------------------------------GETTERS & SETTERS---------------------------------------------------*/
 
     public Orders getOrder() {
-        return order;
+        return orders;
     }
 
-    public void setOrder(Orders order) {
-        this.order = order;
+    public void setOrder(Orders orders) {
+        this.orders = orders;
     }
 
     public Product getProduct() {
@@ -70,57 +70,15 @@ public class OrderProduct {
             return false;
 
         OrderProduct that = (OrderProduct) o;
-        return Objects.equals(order, that.order) &&
+        return Objects.equals(orders, that.orders) &&
                 Objects.equals(product, that.product);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(order, product);
+        return Objects.hash(orders, product);
     }
 
     /*-----------------------------------------------------------------------------------------------------*/
-
-    @Embeddable
-    public class OrderProductId implements Serializable {
-
-        @Column(name = "order_id")
-        private Long orderId;
-
-        @Column(name = "product_id")
-        private Long productId;
-
-        // private OrderProductId() {
-        // }
-
-        public OrderProductId(
-                Long orderId,
-                Long productId) {
-            this.orderId = orderId;
-            this.productId = productId;
-
-        }
-
-        /*--------------------------------------------------OVERRIDE---------------------------------------------------*/
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o)
-                return true;
-
-            if (o == null || getClass() != o.getClass())
-                return false;
-
-            OrderProductId that = (OrderProductId) o;
-            return Objects.equals(orderId, that.orderId) &&
-                    Objects.equals(productId, that.productId);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(orderId, productId);
-        }
-
-    }
 
 }
