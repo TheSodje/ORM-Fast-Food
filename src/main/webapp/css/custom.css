@@ -6,6 +6,11 @@ html {
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+a {
+  color: #000;
+  text-decoration: none;
+}
+
 /* Home | Main page */
 
 .rounded-small-img {
@@ -14,6 +19,30 @@ html {
 
 .rounded-big-img {
   border-radius: 0.5rem !important;
+}
+
+hr {
+  background-color: red;
+  height: 2px;
+}
+
+.footer-header {
+  font-size: xx-large !important;
+  font-weight: 500 !important;
+}
+
+@media (max-width: 1020px) {
+  .footer-header {
+    font-size: larger !important;
+    font-weight: bolder !important;
+  }
+}
+
+.footer-bg {
+  background: rgba(235, 210, 206, 0.1);
+  background-position: center;
+  background-size: contain;
+  position: relative;
 }
 
 /* Construction page */

@@ -1,5 +1,10 @@
 -- INSERT QUERY DATA PRODUCTS
-INSERT INTO product (product_id, product_name, product_price, product_type) 
-values (1, 'shoarma', 10, 'Appetizer'), 
-      (2, 'Wings', 5, 'Appetizer'), 
-      (3, 'Cake', 5, 'Desert');
+INSERT INTO product (product_name,product_description, product_type, product_price) 
+values ("Shawarma", "Shawarma is a Middle Eastern dish made of thinly sliced meat (beef, lamb, or chicken) that is marinated in spices and cooked on a vertical spit. The meat is served in a pita or flatbread, along with toppings and sauces such as vegetables, pickles, and yogurt-based sauces. It is a flavorful and satisfying meal that has gained popularity worldwide.", "Main dish", 60),
+      ("Borscht ", "Borscht is a traditional Russian dish that is popular throughout Eastern Europe. It is a hearty soup made with beets, cabbage, potatoes, and a variety of other vegetables, along with meat or sausage. The soup is often served with a dollop of sour cream and a slice of dark bread. Borscht is beloved for its rich, earthy flavor and its ability to warm the body and soul on a cold winter day. It is also known for its vibrant color, which comes from the beets, and its nutritional value, as it is packed with vitamins and minerals.", "Main dish", 70),  
+      ("Spicy buffalo chicken Wings", "Deep-fried unbreaded chicken wings or drumsticks coated with a vinegar-and-cayenne-pepper hot sauce mixed with butter.", "Appetizer", 25), 
+      ("Chocolate Cake", "A sweet & delicious slice of cake made of dark chocolate with melted caramel on top", "Desert", 20),
+      ("Pelmeni", "Small dumplings filled with ground meat (usually beef, pork, or a mixture of both) and served with sour cream or vinegar.", "Main dish", 86),
+      ("Blini", "Thin pancakes made with buckwheat or wheat flour and served with various fillings such as caviar, smoked salmon, sour cream, or jam.", "Main dish", 75),
+      ("Beef Stroganoff", "Tender pieces of beef in a creamy mushroom sauce, often served over noodles or mashed potatoes.", "Main dish", 150),
+      ("Golubtsy", "Cabbage rolls filled with ground meat and rice, often served with tomato sauce and sour cream.", "Main dish", 90);

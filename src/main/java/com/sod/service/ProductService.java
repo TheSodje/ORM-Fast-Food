@@ -18,8 +18,8 @@ public class ProductService {
         return repository.getProducts();
     }
 
-    public Product createProduct(String name, String type, int price) {
-        return repository.createProduct(name, type, price);
+    public Product createProduct(String name, String descr, String type, Double price) {
+        return repository.createProduct(name, descr, type, price);
     }
 
     public Product updateProduct(Product product) {

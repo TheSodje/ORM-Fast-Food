@@ -35,9 +35,10 @@ public class ProductRepository {
         return product;
     }
 
-    public Product createProduct(String name, String type, int price) {
+    public Product createProduct(String name, String descr, String type, Double price) {
         Product product = new Product();
         product.setName(name);
+        product.setDescr(descr);
         product.setType(type);
         product.setPrice(price);
         return createProduct(product);

@@ -17,6 +17,9 @@ public class Product {
     @Column(name = "product_name")
     private String name;
 
+    @Column(name = "product_description", length = 65535, columnDefinition="TEXT")
+    private String descr;
+
     @Column(name = "product_type")
     private String type;
 
@@ -53,6 +56,14 @@ public class Product {
         this.name = name;
     }
 
+    public String getDesc() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr;
+    }
+
     public String getType() {
         return type;
     }
@@ -74,6 +85,7 @@ public class Product {
         return "Product{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", descr=" + descr +
                 ", type=" + type +
                 ", price=" + price +
                 ", orders=" + orders +
