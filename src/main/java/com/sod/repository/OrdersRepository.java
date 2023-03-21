@@ -17,23 +17,17 @@ public class OrdersRepository {
         this.entityManager = entityManager;
     }
 
-    public List<Orders> getOrder() {
-        String query = "select g from Orders g";
-        TypedQuery<Orders> typedQuery = entityManager.createQuery(query, Orders.class);
-        return typedQuery.getResultList();
-    }
-
-    private Orders createOrder(Orders product) {
+    public Orders createOrder(Orders orders) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(product);
+            entityManager.persist(orders);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
         }
 
-        return product;
+        return orders;
     }
 
     public Orders createOrder(String orderCode, String status, List<Product> product, LocalDateTime date) {
@@ -44,4 +38,37 @@ public class OrdersRepository {
         return createOrder(orders);
     }
 
+    public List<Orders> getOrder() {
+        String query = "select o from Orders o";
+        TypedQuery<Orders> typedQuery = entityManager.createQuery(query, Orders.class);
+        List<Orders> orderList = typedQuery.getResultList();
+        return orderList;
+    }
+
+    public Orders updateOrder(Orders orders) {
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.find(Orders.class, orders.getId());
+            entityManager.merge(orders);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+        }
+        return orders;
+    }
+
+    public Orders deleteOrder(Orders orders) {
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.find(Orders.class, orders.getId());
+            if (orders != null)
+                entityManager.remove(orders);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+        }
+        return orders;
+    }
 }

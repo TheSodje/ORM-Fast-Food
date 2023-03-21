@@ -1,7 +1,6 @@
 package com.sod.entity;
 
 import jakarta.persistence.*;
-import java.util.*;
 
 @Entity
 public class UserInfo {

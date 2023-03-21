@@ -28,7 +28,7 @@ public class UserInfoRepository {
     }
 
     public List<UserInfo> getUserInfo() {
-        String query = "select g from User g";
+        String query = "select g from UserInfo g";
         TypedQuery<UserInfo> typedQuery = entityManager.createQuery(query, UserInfo.class);
         List<UserInfo> userInfoList = typedQuery.getResultList();
         return userInfoList;

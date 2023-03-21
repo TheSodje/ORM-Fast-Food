@@ -14,20 +14,7 @@ public class UserInfoService {
         this.userInfoRepository = new UserInfoRepository(JPAConfiguration.getEntityManager());
     }
 
-    // CRUD USERINFO
-    public UserInfo createUserInfo(UserInfo userInfo) {
-        return userInfoRepository.createUserInfo(userInfo);
-    }
-
-    public List<UserInfo> getUsers() {
+    public List<UserInfo> getUserInfo() {
         return userInfoRepository.getUserInfo();
-    }
-
-    public UserInfo updateUserInfo(UserInfo userInfo) {
-        return userInfoRepository.updateUserInfo(userInfo);
-    }
-
-    public UserInfo deleteUserInfo(UserInfo userInfo) {
-        return userInfoRepository.deleteUserInfo(userInfo);
     }
 }

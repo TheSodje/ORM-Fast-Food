@@ -1,13 +1,17 @@
 package com.sod;
 
+import com.sod.entity.*;
+import com.sod.service.*;
+
 public class Main {
 
     public static void main(String[] args) {
 
         // UserService userService = new UserService();
         // UserInfoService userInfoService = new UserInfoService();
-        // ProductService productService = new ProductService();
+//        ProductService productService = new ProductService();
         // OrdersService ordersService = new OrdersService();
+//        ContactUsService contactUsService = new ContactUsService();
 
         /*----------------------------------------------------------------------------------------------------------*/
         // UserInfo userInfo = new UserInfo("Bamiestraat #12","Male", "12-12-1998" );
@@ -33,12 +37,13 @@ public class Main {
 
         // /*----------------------------------------------------------------------------------------------------------*/
 
-        // Product product = new Product();
-        // product = productService.createProduct("Shoarma", "Desert", "Desert", 5);
-        // System.out.println(product.getName());
-        // System.out.println(product.getDesc());
-        // System.out.println(product.getType());
-        // System.out.println(product.getPrice());
+//        Product product = new Product();
+//
+//        product = productService.createProduct("Shoarma", "Desert", "Desert", 5.0);
+//        System.out.println(product.getName());
+//        System.out.println(product.getDesc());
+//        System.out.println(product.getType());
+//        System.out.println(product.getPrice());
 
         /*----------------------------------------------------------------------------------------------------------*/
 
@@ -50,6 +55,16 @@ public class Main {
         // System.out.println(orders.getCode());
         // System.out.println(orders.getStatus());
         // System.out.println(orders.getDate());
+
+        /*----------------------------------------------------------------------------------------------------------*/
+
+//         ContactUs contact = new ContactUs();
+//
+//         contact = ContactUsService.createContactUs("Shoarma", "Desert@sda.co", "72772", "Hello");
+//         System.out.println(contact.getName());
+//         System.out.println(contact.getEmail());
+//         System.out.println(contact.getNumber());
+//         System.out.println(contact.getMessage());
 
         /*----------------------------------------------------------------------------------------------------------*/
 

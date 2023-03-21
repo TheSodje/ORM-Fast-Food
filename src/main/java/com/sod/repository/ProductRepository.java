@@ -5,6 +5,7 @@ import java.util.List;
 import com.sod.entity.Product;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 
 public class ProductRepository {
@@ -13,13 +14,6 @@ public class ProductRepository {
 
     public ProductRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
-    }
-
-    public List<Product> getProducts() {
-        String query = "select g from Product g";
-        TypedQuery<Product> typedQuery = entityManager.createQuery(query, Product.class);
-        List<Product> productList = typedQuery.getResultList();
-        return productList;
     }
 
     public Product createProduct(Product product) {
@@ -44,18 +38,19 @@ public class ProductRepository {
         return createProduct(product);
     }
 
-    public Product deleteProduct(Product product) {
-        try {
-            entityManager.getTransaction().begin();
-            entityManager.find(Product.class, product.getId());
-            if (product != null)
-                entityManager.remove(product);
-            entityManager.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            entityManager.getTransaction().rollback();
-        }
-        return product;
+    public List<Product> getProduct() {
+        String query = "select p from Product p";
+        TypedQuery<Product> typedQuery = entityManager.createQuery(query, Product.class);
+        List<Product> productList = typedQuery.getResultList();
+        return productList;
+    }
+
+    public List<Product> getSingleProduct(int id) {
+        String findSingleProduct = "select p.id as id, p.name as name, p.descr as description, p.price as price, p.type as type from Product p where p.id = :id";
+        Query query = entityManager.createQuery(findSingleProduct);
+        query.setParameter("id", id);
+        Object singleResult = query.getResultList();
+        return (List<Product>) singleResult;
     }
 
     public Product updateProduct(Product product) {
@@ -70,4 +65,19 @@ public class ProductRepository {
         }
         return product;
     }
+
+    public Product deleteProduct(Product product) {
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.find(Product.class, product.getId());
+            if (product != null)
+                entityManager.remove(product);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+        }
+        return product;
+    }
+
 }

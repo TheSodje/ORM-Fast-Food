@@ -9,18 +9,31 @@ import com.sod.entity.Product;
 import com.sod.repository.OrdersRepository;
 
 public class OrdersService {
-    private final OrdersRepository repository;
+    private final OrdersRepository orderRepository;
 
     public OrdersService() {
-        this.repository = new OrdersRepository(JPAConfiguration.getEntityManager());
+        this.orderRepository = new OrdersRepository(JPAConfiguration.getEntityManager());
     }
 
-    public List<Orders> getOrder() {
-        return repository.getOrder();
+    public Orders createOrder(Orders orders) {
+        return orderRepository.createOrder(orders);
     }
 
     public Orders createOrder(String orderCode, String status, List<Product> product, LocalDateTime date) {
-        return repository.createOrder(orderCode, status, product, date);
+        return orderRepository.createOrder(orderCode, status, product, date);
     }
+
+    public List<Orders> getOrder() {
+        return orderRepository.getOrder();
+    }
+
+    public Orders updateOrder(Orders orders) {
+        return orderRepository.updateOrder(orders);
+    }
+
+    public Orders deleteOrder(Orders orders) {
+        return orderRepository.deleteOrder(orders);
+    }
+
 
 }

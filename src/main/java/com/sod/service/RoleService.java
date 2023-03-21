@@ -14,20 +14,8 @@ public class RoleService {
         this.RoleRepository = new RoleRepository(JPAConfiguration.getEntityManager());
     }
 
-    // CRUD ROLE
-    public Role createRole(Role role) {
-        return RoleRepository.createRole(role);
-    }
-
-    public List<Role> getUsers() {
+    public List<Role> getRole() {
         return RoleRepository.getRole();
     }
 
-    public Role updateRole(Role role) {
-        return RoleRepository.updateRole(role);
-    }
-
-    public Role deletRole(Role role) {
-        return RoleRepository.deleteRole(role);
-    }
 }

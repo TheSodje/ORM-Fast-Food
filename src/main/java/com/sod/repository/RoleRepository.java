@@ -29,18 +29,17 @@ public class RoleRepository {
     }
 
     public List<Role> getRole() {
-        String query = "select g from Role g";
+        String query = "select r from Role r";
         TypedQuery<Role> typedQuery = entityManager.createQuery(query, Role.class);
         List<Role> roleList = typedQuery.getResultList();
         return roleList;
     }
 
-    public Role deleteRole(Role role) {
+    public Role updateRole(Role role) {
         try {
             entityManager.getTransaction().begin();
             entityManager.find(Role.class, role.getId());
-            if (role != null)
-                entityManager.remove(role);
+            entityManager.merge(role);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,11 +48,12 @@ public class RoleRepository {
         return role;
     }
 
-    public Role updateRole(Role role) {
+    public Role deleteRole(Role role) {
         try {
             entityManager.getTransaction().begin();
             entityManager.find(Role.class, role.getId());
-            entityManager.merge(role);
+            if (role != null)
+                entityManager.remove(role);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();

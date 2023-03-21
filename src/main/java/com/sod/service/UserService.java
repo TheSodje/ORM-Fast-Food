@@ -14,22 +14,12 @@ public class UserService {
         this.userRepository = new UserRepository(JPAConfiguration.getEntityManager());
     }
 
-    // CRUD USERS
-
     public User createUser(User user) {
         return userRepository.createUser(user);
     }
 
-    public List<User> getUsers() {
-        return userRepository.getUsers();
-    }
-
-    public User updateUser(User user) {
-        return userRepository.updateUser(user);
-    }
-
-    public User deleteUser(User user) {
-        return userRepository.deleteUser(user);
+    public List<User> getUser() {
+        return userRepository.getUser();
     }
 
     public void save(User user) {

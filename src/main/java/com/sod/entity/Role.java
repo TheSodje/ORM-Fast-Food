@@ -1,13 +1,9 @@
 package com.sod.entity;
 
 import jakarta.persistence.*;
-import java.util.*;
 
 @Entity
 public class Role {
-
-    // Many to One mapping with Department
-    // Many to Many mapping with users
 
     @Id
     @Column(name = "role_id")

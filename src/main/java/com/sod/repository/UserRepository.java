@@ -29,7 +29,7 @@ public class UserRepository {
         return user;
     }
 
-    public List<User> getUsers() {
+    public List<User> getUser() {
         String query = "select g from User g";
         TypedQuery<User> typedQuery = entityManager.createQuery(query, User.class);
         List<User> userList = typedQuery.getResultList();

@@ -3,6 +3,8 @@ package com.sod.entity;
 import jakarta.persistence.*;
 import java.util.*;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 public class Product {
 
@@ -15,15 +17,19 @@ public class Product {
     private Long id;
 
     @Column(name = "product_name")
+    @JsonProperty("name")
     private String name;
-
+    
     @Column(name = "product_description", length = 65535, columnDefinition="TEXT")
+    @JsonProperty("description")
     private String descr;
-
+    
     @Column(name = "product_type")
+    @JsonProperty("type")
     private String type;
-
+    
     @Column(name = "product_price")
+    @JsonProperty("price")
     private Double price;
 
     /*--------------------------------------------------MAPPING---------------------------------------------------*/
