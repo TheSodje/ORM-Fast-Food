@@ -46,7 +46,7 @@ public class ProductRepository {
     }
 
     public List<Product> getSingleProduct(int id) {
-        String findSingleProduct = "select p.id as id, p.name as name, p.descr as description, p.price as price, p.type as type from Product p where p.id = :id";
+        String findSingleProduct = "select p from Product p where p.id = :id";
         Query query = entityManager.createQuery(findSingleProduct);
         query.setParameter("id", id);
         Object singleResult = query.getResultList();

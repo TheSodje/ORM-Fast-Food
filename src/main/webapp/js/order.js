@@ -1,6 +1,6 @@
 const orderTable = document.querySelector("#order-table");
 // Fetch data from db
-fetch("http://localhost:8888/ormFastFood_war/api/orders/get_orders")
+fetch("http://localhost:8888/ormFastFood_war_exploded/api/orders/get_orders")
   .then((response) => response.json())
   .then((products) => {
     products.forEach((product) => {

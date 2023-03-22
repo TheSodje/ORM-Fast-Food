@@ -7,4 +7,7 @@ values ("Shawarma", "Shawarma is a Middle Eastern dish made of thinly sliced mea
       ("Pelmeni", "Small dumplings filled with ground meat (usually beef, pork, or a mixture of both) and served with sour cream or vinegar.", "Main dish", 86),
       ("Blini", "Thin pancakes made with buckwheat or wheat flour and served with various fillings such as caviar, smoked salmon, sour cream, or jam.", "Main dish", 75),
       ("Beef Stroganoff", "Tender pieces of beef in a creamy mushroom sauce, often served over noodles or mashed potatoes.", "Main dish", 150),
-      ("Golubtsy", "Cabbage rolls filled with ground meat and rice, often served with tomato sauce and sour cream.", "Main dish", 90);
+      ("Golubtsy", "Cabbage rolls filled with ground meat and rice, often served with tomato sauce and sour cream.", "Main dish", 90),
+      ("Tiramisu", "This is a classic Italian dessert made with layers of ladyfingers soaked in coffee and liqueur, and then layered with a mixture of mascarpone cheese, sugar, and eggs. The top layer is typically dusted with cocoa powder.", "Desert", 25),
+      ("Baklava", "Baklava is a sweet pastry made with layers of phyllo dough, chopped nuts (usually walnuts or pistachios), and syrup or honey. The layers are brushed with butter or oil to create a crispy texture, and the nuts are usually spiced with cinnamon and cloves.", "Desert", 30),
+      ("Pastéis de nata","These are Portuguese custard tarts that are made with a flaky pastry crust and a creamy custard filling that is flavored with vanilla and cinnamon. They are typically served warm and dusted with powdered sugar and cinnamon.", "Dessert", 25);
