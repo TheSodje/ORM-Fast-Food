@@ -14,7 +14,7 @@ public class RoleController {
 
     RoleService roleService = new RoleService();
 
-    @Path("/get_roles")
+    @Path("/getRoles")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Role> allRoles() {

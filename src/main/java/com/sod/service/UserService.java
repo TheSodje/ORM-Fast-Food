@@ -22,6 +22,10 @@ public class UserService {
         return userRepository.getUser();
     }
 
+    public List<User> getUserRoleDepartment() {
+        return userRepository.getUserRoleDepartment();
+    }
+
     public void save(User user) {
     }
 }

@@ -45,12 +45,12 @@ public class ProductRepository {
         return productList;
     }
 
-    public List<Product> getSingleProduct(int id) {
-        String findSingleProduct = "select p from Product p where p.id = :id";
-        Query query = entityManager.createQuery(findSingleProduct);
+    public Product getSingleProduct(int id) {
+        Query query = entityManager.createQuery("select s from Product s where s.id = :id ");
         query.setParameter("id", id);
-        Object singleResult = query.getResultList();
-        return (List<Product>) singleResult;
+        Product result = (Product) query.getSingleResult();
+
+        return result;
     }
 
     public Product updateProduct(Product product) {
@@ -66,18 +66,25 @@ public class ProductRepository {
         return product;
     }
 
-    public Product deleteProduct(Product product) {
+    public void deleteProduct(Product product) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.find(Product.class, product.getId());
-            if (product != null)
-                entityManager.remove(product);
+            entityManager.remove(product);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
         }
-        return product;
+    }
+
+    public int deleteProductId(Long id) {
+        entityManager.getTransaction().begin();
+        Query query = entityManager.createQuery("delete from Product p where p.id = :id");
+        query.setParameter("id", id);
+        int rowsDeleted = query.executeUpdate();
+        System.out.println("entities deleted: " + rowsDeleted);
+        entityManager.getTransaction().commit();
+        return rowsDeleted;
     }
 
 }

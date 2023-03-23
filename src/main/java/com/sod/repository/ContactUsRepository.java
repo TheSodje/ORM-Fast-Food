@@ -9,7 +9,7 @@ import jakarta.persistence.TypedQuery;
 
 public class ContactUsRepository {
 
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     public ContactUsRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
@@ -29,7 +29,7 @@ public class ContactUsRepository {
     }
 
     
-    public ContactUs createContactUs(String name, String email, String number, String message) {
+    public ContactUs createContact(String name, String email, String number, String message) {
         ContactUs contactUs = new ContactUs();
         contactUs.setName(name);
         contactUs.setEmail(email);

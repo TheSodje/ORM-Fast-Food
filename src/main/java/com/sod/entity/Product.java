@@ -37,12 +37,12 @@ public class Product {
     // @ManyToMany(mappedBy = "products")
     // private List<Orders> orders;
 
-    @OneToMany(
-        mappedBy = "product",
-        cascade = CascadeType.ALL,
-        orphanRemoval = true
-    )
-    private List<OrderProduct> orders;
+    // @OneToMany(
+    //     mappedBy = "product",
+    //     cascade = CascadeType.ALL,
+    //     orphanRemoval = true
+    // )
+    // private List<OrderProduct> orders;
 
     /*--------------------------------------------------GETTERS & SETTERS---------------------------------------------------*/
 
@@ -94,7 +94,6 @@ public class Product {
                 ", descr=" + descr +
                 ", type=" + type +
                 ", price=" + price +
-                ", orders=" + orders +
                 '}';
     }
 

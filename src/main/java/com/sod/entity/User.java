@@ -8,6 +8,8 @@ public class User {
 
     // Many to One mapping with Roles
     // One to One mapping with userinfo
+    public User() {
+    }
 
     @Id
     @Column(name = "user_id")

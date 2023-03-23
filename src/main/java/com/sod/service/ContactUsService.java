@@ -18,8 +18,8 @@ public class ContactUsService {
         return contactUsRepository.createContactUs(contactUs);
     }
 
-    public ContactUs createContactUs(String name, String email, String number, String message) {
-        return contactUsRepository.createContactUs(name, email, number, message);
+    public ContactUs createContact(String name, String email, String number, String message) {
+        return contactUsRepository.createContact(name, email, number, message);
     }
 
     public List<ContactUs> getContactUs() {

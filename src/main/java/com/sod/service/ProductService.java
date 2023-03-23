@@ -8,33 +8,34 @@ import com.sod.repository.ProductRepository;
 
 public class ProductService {
 
-    private final ProductRepository productRrepository;
+    private final ProductRepository productRepository;
 
     public ProductService() {
-        this.productRrepository = new ProductRepository(JPAConfiguration.getEntityManager());
+        this.productRepository = new ProductRepository(JPAConfiguration.getEntityManager());
     }
- 
+
     public Product createProduct(Product product) {
-        return productRrepository.createProduct(product);
+        return productRepository.createProduct(product);
     }
 
     public Product createProduct(String name, String descr, String type, Double price) {
-        return productRrepository.createProduct(name, descr, type, price);
+        return productRepository.createProduct(name, descr, type, price);
     }
 
     public List<Product> getProduct() {
-        return productRrepository.getProduct();
+        return productRepository.getProduct();
     }
 
-    public List<Product> getSingleProduct(int id){
-        return productRrepository.getSingleProduct(id);
+    public Product getSingleProduct(int id) {
+        return productRepository.getSingleProduct(id);
     }
 
     public Product updateProduct(Product product) {
-        return productRrepository.updateProduct(product);
+        return productRepository.updateProduct(product);
     }
 
-    public Product deleteProduct(Product product) {
-        return productRrepository.deleteProduct(product);
+    public void deleteProduct(Product product) {
+        productRepository.deleteProduct(product);
     }
+
 }

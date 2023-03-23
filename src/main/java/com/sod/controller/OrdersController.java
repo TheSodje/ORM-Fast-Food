@@ -9,11 +9,11 @@ import jakarta.ws.rs.core.MediaType;
 import com.sod.entity.Orders;
 import com.sod.service.OrdersService;
 
-@Path("/menu")
+@Path("/orders")
 public class OrdersController {
     OrdersService orderService = new OrdersService();
 
-    @Path("/get_orders")
+    @Path("/getOrders")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Orders> allOrders() {

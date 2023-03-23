@@ -5,6 +5,7 @@ import java.util.List;
 import com.sod.entity.User;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 
 public class UserRepository {
@@ -30,10 +31,21 @@ public class UserRepository {
     }
 
     public List<User> getUser() {
-        String query = "select g from User g";
+        String query = "select u from User u";
         TypedQuery<User> typedQuery = entityManager.createQuery(query, User.class);
         List<User> userList = typedQuery.getResultList();
         return userList;
+    }
+
+    public List<User> getUserRoleDepartment() {
+        Query query = entityManager.createQuery("select u.first_name as firstname , u.last_name as lastname, r.name as role, d.name as department from User u inner join u.role r inner join r.department d");
+        List<User> userRoleDepartmentList = query.getResultList();
+        return userRoleDepartmentList;
+
+        // String query = "select u.first_name as firstname , u.last_name as lastname, r.name as role, d.name as department from User u inner join u.role r inner join r.department d ";
+        // TypedQuery<User> typedQuery = entityManager.createQuery(query, User.class);
+        // List<User> userRoleDepartmentList = typedQuery.getResultList();
+        // return userRoleDepartmentList;
     }
 
     public User deleteUser(User user) {

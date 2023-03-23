@@ -11,7 +11,7 @@ public class DepartmentConctroller {
 
     DepartmentService departmentService = new DepartmentService();
 
-    @Path("/get_departments")
+    @Path("/getDepartments")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Department> allDepartments() {

@@ -12,6 +12,8 @@ public class Orders {
 
     // Many to Many mapping with User
     // Many to Many mapping with Order
+    public Orders() {
+    }
 
     @Id
     @Column(name = "id")
