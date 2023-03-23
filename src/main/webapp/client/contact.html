@@ -1,229 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="../img/icons/Red based.png" />
 
-    <title>Contact Us</title>
-    <!-- Include Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="../css/custom.css" />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
-      integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../img/icons/Red based.png" />
 
-  <body>
-    <div class="d-flex justify-content-center pt-2 pb-5">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="../index.html">HASBI</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="../index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./menu.html">Menu</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./about.html">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
+  <title>Contact Us</title>
+  <!-- Include Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../css/custom.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+    integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
 
-    <!-- Contact Form -->
-    <div class="container mt-4">
-      <h3 class="d-flex justify-content-center">Contact Us</h3>
-      <div class="row">
-        <div class="col-8">
-          <form id="addContactForm" method="POST" enctype="multipart/form-data">
-            <div class="form-group mt-2">
-              <label for="name">Name:</label>
-              <input
-                type="text"
-                class="form-control"
-                id="name"
-                placeholder="Enter your name"
-              />
-            </div>
-            <div class="form-group mt-2">
-              <label for="email">Email:</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                placeholder="Enter your email"
-              />
-            </div>
-            <div class="form-group mt-2">
-              <label for="number">Phonenumber:</label>
-              <input
-                type="number"
-                class="form-control"
-                id="number"
-                placeholder="Enter your number"
-              />
-            </div>
-            <div class="form-group mt-2">
-              <label for="message">Message:</label>
-              <textarea
-                class="form-control"
-                id="message"
-                rows="5"
-                placeholder="Enter your message"
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              value="submit"
-              id="submitContact"
-              class="btn btn-success mt-2"
-            >
-              Submit
-            </button>
-          </form>
-          <br />
-          <p class="mt-2 text-danger fw-bold h6">
-            *Contact us if you want to place a reservation or if you want to
-            give feedback regarding to our Service.
-          </p>
-        </div>
-        <div class="col-4">
-          <img src="../img/products/sample 1.png" alt="" class="img-fluid" />
+<body>
+  <div class="d-flex justify-content-center pt-2 pb-5">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html">HASBI</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./menu.html">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Contact</a>
+            </li>
+          </ul>
         </div>
       </div>
+    </nav>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="container mt-4">
+    <h3 class="d-flex justify-content-center">Contact Us</h3>
+    <div class="row">
+      <div class="col-8">
+        <form id="addContactForm">
+          <div class="form-group mt-2">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name" />
+          </div>
+          <div class="form-group mt-2">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" />
+          </div>
+          <div class="form-group mt-2">
+            <label for="number">Phonenumber:</label>
+            <input type="number" class="form-control" id="number" placeholder="Enter your number" />
+          </div>
+          <div class="form-group mt-2">
+            <label for="message">Message:</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+          </div>
+          <button type="submit" value="submit" id="submitContact" class="btn btn-success mt-2">
+            Submit
+          </button>
+        </form>
+        <br />
+        <p class="mt-2 text-danger fw-bold h6">
+          *Contact us if you want to place a reservation or if you want to
+          give feedback regarding to our Service.
+        </p>
+      </div>
+      <div class="col-4">
+        <img src="../img/products/sample 1.png" alt="" class="img-fluid" />
+      </div>
     </div>
+  </div>
 
-    <!-- Include Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-      const submitContact = document.querySelector("#submitContact");
+  <!-- Include Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    var form = document.getElementById("addContactForm");
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      submitContact();
+    });
 
-      $(document).ready(function (e) {
-        $("#addContactForm").on("submit", function (e) {
-          e.preventDefault();
-          let formData = {
-            name: $("#name").val(),
-            email: $("#email").val(),
-            number: $("#number").val(),
-            message: $("#message").val(),
-          };
-          // let name = $("#name").val();
-          // let email = $("#email").val();
-          // let number = $("#number").val();
-          // let message = $("#message").val();
-          // console.log(name);
-          // console.log(email);
-          // console.log(number);
-          // console.log(message);
-          $.ajax({
-            url: "http://localhost:8888/ormFastFood_war_exploded/api/contact/add/",
-            type: "POST",
-            data: formData,
-            // {
-            //   name: name,
-            //   email: email,
-            //   number: number,
-            //   message: message,
-            // },
-            contentType: false,
-            cache: false,
-            processData: false,
-            beforeSend: function () {
-              submitContact.setAttribute("disabled", "disabled");
-              submitContact.style.opacity = 0.5;
-              submitContact.innerText = "Uploading...";
-            },
-            success: function (data) {
-              // log data to the console so we can see
-              // console.log(data);
-              console.log(name);
-              console.log(email);
-              console.log(number);
-              console.log(message);
-              // clear form
-              $("#addContactForm")[0].reset();
-            },
-            complete: function () {
-              setTimeout(() => {
-                submitContact.removeAttribute("disabled");
-                submitContact.style.opacity = 1;
-                submitContact.innerText = "Save";
-              }, 1500);
-            },
-          });
-        });
-      });
-    </script>
+    function submitContact() {
+      let name = $("#name").val();
+      let email = $("#email").val();
+      let number = $("#number").val();
+      let message = $("#message").val();
 
-    <!-- <script>
-      var form = document.getElementById("addContactForm");
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        submitContact();
-      });
+      console.log(name, email, number, message);
 
-      function submitContact() {
-        let name = $("#name").val();
-        let email = $("#email").val();
-        let number = $("#number").val();
-        let message = $("#message").val();
+      var xhr = new XMLHttpRequest();
+      xhr.open(
+        "POST",
+        "http://localhost:8888/ormFastFood_war_exploded/api/contact/add"
+      );
+      xhr.setRequestHeader("Content-Type", "application/json");
 
-        var xhr = new XMLHttpRequest();
-        xhr.open(
-          "POST",
-          "http://localhost:8888/ormFastFood_war_exploded/api/contact/add/"
-        );
-        xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.onload = function () {
+        if (xhr.status == 200) {
+          alert("Contact added successfully!");
+          document.getElementById("addContactForm").reset();
+        } else {
+          alert("Error adding Contact");
+        }
+      };
 
-        xhr.onload = function () {
-          if (xhr.status == 200) {
-            alert("Contact added successfully!");
-            form.reset();
-          } else {
-            alert("Error adding Contact");
-          }
-        };
+      xhr.send(
+        JSON.stringify({
+          name: name,
+          email: email,
+          number: number,
+          message: message,
+        })
+      );
+    }
+  </script>
+</body>
 
-        xhr.send(
-          JSON.stringify({
-            name: name,
-            email: email,
-            number: number,
-            message: message,
-          })
-        );
-      }
-    </script> -->
-  </body>
 </html>
