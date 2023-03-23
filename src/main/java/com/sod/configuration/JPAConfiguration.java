@@ -7,8 +7,8 @@ import jakarta.persistence.Persistence;
 public class JPAConfiguration {
 
     private static final String PERSISTENCE_UNIT_NAME = "fast_food_persistence";
-    private static EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-    private static EntityManager entityManager = factory.createEntityManager();
+    private static final EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+    private static final EntityManager entityManager = factory.createEntityManager();
 
     public static EntityManagerFactory getEntityManagerFactory() {
         return factory;
